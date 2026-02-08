@@ -1,5 +1,5 @@
 import pytest
-from flaskapp import app, sales_transactions, product_sales
+from cisco.sales_analytics import app, sales_transactions, product_sales
 
 @pytest.fixture
 def client():
@@ -9,7 +9,7 @@ def client():
         sales_transactions.clear()
         product_sales.clear()
         yield client
-
+#copilot
 def test_add_transaction(client):
     response = client.post('/transactions', json={"product": "Product A", "amount": 100})
     assert response.status_code == 201
